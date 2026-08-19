@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+/* Enable class-based dark mode (Tailwind 4 CSS config). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Bridge design tokens into the theme so they become real utilities
+   (bg-paper, text-ink, border-line, ring-accent, font-mono, …).
+   Values are CSS vars flipped by .dark below, so a single utility works
+   in both themes with no dark: duplication. */
+@theme {
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code", Menlo,
+    Consolas, "Liberation Mono", monospace;
+
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --paper: #fbfbfa;
+  --ink: #17171a;
+  --muted: #8a8a82;
+  --faint: #b9b9b2;
+  --line: #e7e7e2;
+  --accent: #2a5bd7;
+  --selection: #d5deff;
+}
+
+:root.dark {
+  --paper: #0d0d0f;
+  --ink: #ededea;
+  --muted: #7c7c74;
+  --faint: #55554f;
+  --line: #232326;
+  --accent: #7b95ff;
+  --selection: #26305c;
+}
+
+/* Only what utilities can't express. */
+::selection {
+  background: var(--selection);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

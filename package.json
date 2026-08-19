@@ -13,6 +13,7 @@
     "format": "oxfmt src/"
   },
   "dependencies": {
+    "@noble/ciphers": "^2.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3",
     "vue": "rc",

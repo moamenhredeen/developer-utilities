@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import UtilityLayout from '../components/UtilityLayout.vue'
 import CopyButton from '../components/CopyButton.vue'
 
@@ -13,6 +13,13 @@ const precisions: { id: Precision; label: string }[] = [
 
 // --- timestamp -> date ---
 const tsInput = ref('0')
+const mounted = ref(false)
+
+onMounted(() => {
+  // Local timezone output is browser-specific; defer it to avoid an SSG
+  // hydration mismatch between the build machine and the visitor.
+  mounted.value = true
+})
 
 const epochMs = computed<number | null>(() => {
   const raw = tsInput.value.trim()
@@ -32,7 +39,7 @@ const parsedDate = computed(() => {
   return isNaN(d.getTime()) ? null : d
 })
 
-const outLocal = computed(() => parsedDate.value?.toString() ?? '—')
+const outLocal = computed(() => (mounted.value ? (parsedDate.value?.toString() ?? '—') : '—'))
 const outUtc = computed(() => parsedDate.value?.toUTCString() ?? '—')
 const outIso = computed(() => {
   try {

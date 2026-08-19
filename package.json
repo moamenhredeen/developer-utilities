@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "deploy": "npm run build && wrangler deploy",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
@@ -33,7 +34,8 @@
     "vite": "^8.1.5",
     "vite-plugin-vue-devtools": "^8.1.5",
     "vitest": "^4.1.10",
-    "vue-tsc": "^3.3.7"
+    "vue-tsc": "^3.3.7",
+    "wrangler": "^4.124.0"
   },
   "engines": {
     "node": "^22.18.0 || >=24.12.0"

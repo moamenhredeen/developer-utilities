@@ -122,5 +122,17 @@ const field =
         </div>
       </section>
     </div>
+
+    <template #about>
+      <h2 class="text-base text-ink">Unix timestamp converter</h2>
+      <p class="mt-3">
+        Convert Unix epoch values to local time, UTC, and ISO 8601, or turn a calendar date back
+        into a timestamp. Choose seconds, milliseconds, or nanoseconds before converting.
+      </p>
+      <p class="mt-3">
+        A Unix timestamp measures elapsed time from 1 January 1970 at 00:00:00 UTC. Conversion runs
+        locally in your browser; entered dates and timestamps are never uploaded.
+      </p>
+    </template>
   </UtilityLayout>
 </template>

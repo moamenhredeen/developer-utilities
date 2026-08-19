@@ -58,5 +58,17 @@ watch([input, () => ({ ...selected })], recompute, { immediate: true, deep: true
         <p class="mt-1 break-all text-sm">{{ digests[algo] ?? '' }}</p>
       </div>
     </div>
+
+    <template #about>
+      <h2 class="text-base text-ink">SHA hash generator</h2>
+      <p class="mt-3">
+        Calculate SHA-1, SHA-256, SHA-384, and SHA-512 digests from UTF-8 text. Select one or several
+        algorithms to compare their hexadecimal output as you type.
+      </p>
+      <p class="mt-3">
+        Hashing is one-way and is not encryption. SHA-1 is retained for compatibility checks but
+        should not be used for modern security-sensitive applications. Input stays in your browser.
+      </p>
+    </template>
   </UtilityLayout>
 </template>

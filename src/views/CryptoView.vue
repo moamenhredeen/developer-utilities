@@ -103,5 +103,18 @@ const field =
         wrong passphrase may return garbage rather than a clear error.
       </p>
     </div>
+
+    <template #about>
+      <h2 class="text-base text-ink">Local text encryption and decryption</h2>
+      <p class="mt-3">
+        Encrypt plaintext with a passphrase or decrypt compatible Base64 ciphertext using AES-GCM,
+        AES-CBC, or ChaCha20-Poly1305. Encryption keys are derived locally from your passphrase.
+      </p>
+      <p class="mt-3">
+        AES-GCM and ChaCha20-Poly1305 authenticate the ciphertext and detect modification. AES-CBC
+        does not provide authentication and is included only when compatibility requires it. No
+        plaintext, passphrase, key, or ciphertext leaves your browser.
+      </p>
+    </template>
   </UtilityLayout>
 </template>

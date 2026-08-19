@@ -112,5 +112,17 @@ const num =
         <CopyButton :value="hsvString" />
       </div>
     </div>
+
+    <template #about>
+      <h2 class="text-base text-ink">HEX, RGB, HSL, and HSV color converter</h2>
+      <p class="mt-3">
+        Pick a color or edit any channel to convert it instantly between hexadecimal, RGB, HSL,
+        and HSV formats. Each representation stays synchronized and can be copied directly.
+      </p>
+      <p class="mt-3">
+        HEX and RGB describe red, green, and blue channel values, while HSL and HSV provide
+        hue-based controls that are often more convenient when adjusting a palette.
+      </p>
+    </template>
   </UtilityLayout>
 </template>

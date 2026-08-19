@@ -29,5 +29,9 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
     <div class="mt-8">
       <slot />
     </div>
+
+    <section v-if="$slots.about" class="mt-16 border-t border-line pt-8 text-sm leading-7 text-muted">
+      <slot name="about" />
+    </section>
   </div>
 </template>

@@ -116,5 +116,17 @@ const checkboxes: { key: keyof typeof opts; label: string }[] = [
         <span class="text-muted">{{ c.label }}</span>
       </label>
     </div>
+
+    <template #about>
+      <h2 class="text-base text-ink">Secure password generator</h2>
+      <p class="mt-3">
+        Generate passwords from lowercase letters, uppercase letters, digits, and symbols. Adjust
+        the length, remove ambiguous characters, and use the entropy estimate to compare settings.
+      </p>
+      <p class="mt-3">
+        Passwords are produced with the browser's cryptographically secure random-number generator.
+        Generation happens entirely on your device, and no generated password is transmitted or stored.
+      </p>
+    </template>
   </UtilityLayout>
 </template>
